@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Cars</title>
+</head>
+<body>
+    <h1>Cars Management</h1>
+    <p>This is a list of cars from the database.</p>
+
+    <!-- زرار إضافة عربية جديدة -->
+    <p>
+        <a href="/admin/cars/new">Add New Car</a>
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Rate per Day</th>
+                <th>Status</th>
+                <th>Actions</th> <!-- جديد -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car.id }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.car_type }}</td>
+                <td>{{ car.rental_rate }}</td>
+                <td>{{ car.availability_status }}</td>
+                <td>
+                    <!-- رابط تعديل -->
+                    <a href="/admin/cars/{{ car.id }}/edit">Edit</a>
+
+                    <!-- فورم حذف -->
+                    <form action="/admin/cars/{{ car.id }}/delete" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Delete this car?');">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

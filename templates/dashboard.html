@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <p>
+        <a href="/admin">Home</a> |
+        <a href="/admin/cars">Cars</a> |
+        <a href="/admin/maintenance">Maintenance</a> |
+        <a href="/admin/reports">Reports</a>
+    </p>
+
+    <h2>Summary</h2>
+    <ul>
+        <li>Total Cars: {{ total_cars }}</li>
+        <li>Available Cars: {{ available_cars }}</li>
+        <li>Rented Cars: {{ rented_cars }}</li>
+        <li>Total Maintenance Records: {{ total_maintenance }}</li>
+    </ul>
+</body>
+</html>

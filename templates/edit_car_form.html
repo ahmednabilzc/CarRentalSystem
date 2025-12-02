@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Car</title>
+</head>
+<body>
+    <h1>Edit Car</h1>
+
+    <form method="post">
+        <p>
+            <label>Brand:</label><br>
+            <input type="text" name="brand" value="{{ car.brand }}" required>
+        </p>
+
+        <p>
+            <label>Model:</label><br>
+            <input type="text" name="model" value="{{ car.model }}" required>
+        </p>
+
+        <p>
+            <label>Type:</label><br>
+            <input type="text" name="car_type" value="{{ car.car_type }}" required>
+        </p>
+
+        <p>
+            <label>Rental Rate per Day:</label><br>
+            <input type="number" step="0.01" name="rental_rate" value="{{ car.rental_rate }}" required>
+        </p>
+
+        <p>
+            <label>Status:</label><br>
+            <select name="availability_status">
+                <option value="Available" {% if car.availability_status == 'Available' %}selected{% endif %}>Available</option>
+                <option value="Rented" {% if car.availability_status == 'Rented' %}selected{% endif %}>Rented</option>
+            </select>
+        </p>
+
+        <p>
+            <button type="submit">Save Changes</button>
+            <a href="/admin/cars">Cancel</a>
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+</head>
+<body>
+    <h1>Reports</h1>
+
+    <p>
+        <a href="/admin">Home</a> |
+        <a href="/admin/cars">Cars</a> |
+        <a href="/admin/maintenance">Maintenance</a> |
+        <a href="/admin/reports">Reports</a>
+    </p>
+
+    <form method="post">
+        <p>
+            <label>Report Type:</label><br>
+            <select name="report_type" required>
+                <option value="car_summary">Car Summary</option>
+                <option value="maintenance_summary">Maintenance Summary</option>
+            </select>
+        </p>
+
+        <p>
+            <label>Date From (for maintenance report):</label><br>
+            <input type="date" name="date_from">
+        </p>
+
+        <p>
+            <label>Date To (for maintenance report):</label><br>
+            <input type="date" name="date_to">
+        </p>
+
+        <p>
+            <button type="submit">Generate Report</button>
+        </p>
+    </form>
+</body>
+</html>
