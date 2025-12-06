@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Result</title>
+</head>
+<body>
+    <h1>Report Result</h1>
+
+    <p>
+        <a href="/admin">Home</a> |
+        <a href="/admin/cars">Cars</a> |
+        <a href="/admin/maintenance">Maintenance</a> |
+        <a href="/admin/reports">Reports</a>
+    </p>
+
+    {% if report_type == "car_summary" %}
+        <h2>Car Summary Report</h2>
+        <ul>
+            <li>Total Cars: {{ total_cars }}</li>
+            <li>Available Cars: {{ available_cars }}</li>
+            <li>Rented Cars: {{ rented_cars }}</li>
+        </ul>
+    {% elif report_type == "maintenance_summary" %}
+        <h2>Maintenance Summary Report</h2>
+
+        {% if date_from or date_to %}
+            <p>
+                Period:
+                {% if date_from %}From {{ date_from }}{% endif %}
+                {% if date_to %} to {{ date_to }}{% endif %}
+            </p>
+        {% endif %}
+
+        <ul>
+            <li>Total Maintenance Operations: {{ total_operations }}</li>
+            <li>Total Maintenance Cost: {{ total_cost }}</li>
+        </ul>
+    {% endif %}
+</body>
+</html>

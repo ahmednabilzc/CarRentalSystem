@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Maintenance</title>
+</head>
+<body>
+    <h1>Maintenance Records</h1>
+
+    <p>
+        <a href="/admin/maintenance/new">Add Maintenance Record</a>
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Car</th>
+                <th>Service Type</th>
+                <th>Cost</th>
+                <th>Service Date</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in records %}
+            <tr>
+                <td>{{ rec.id }}</td>
+                <td>{{ rec.car.brand }} {{ rec.car.model }}</td>
+                <td>{{ rec.service_type }}</td>
+                <td>{{ rec.cost }}</td>
+                <td>{{ rec.service_date }}</td>
+                <td>{{ rec.notes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Cars</title>
+</head>
+<body>
+    <h1>Cars Management</h1>
+
+    <p>
+        <a href="/admin">Home</a> |
+        <a href="/admin/cars">Cars</a> |
+        <a href="/admin/maintenance">Maintenance</a> |
+        <a href="/admin/reports">Reports</a>
+    </p>
+
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+        <img src="/static/img/car.png" alt="Cars" width="40">
+        <p style="margin:0;">This is a list of cars from the database.</p>
+    </div>
+
+    <p>
+        <a href="/admin/cars/new">Add New Car</a>
+    </p>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Rate per Day</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for car in cars %}
+            <tr>
+                <td>{{ car.id }}</td>
+                <td>{{ car.brand }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.car_type }}</td>
+                <td>{{ car.rental_rate }}</td>
+                <td>{{ car.availability_status }}</td>
+                <td>
+                    <a href="/admin/cars/{{ car.id }}/edit">Edit</a>
+                    <form action="/admin/cars/{{ car.id }}/delete" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Delete this car?');">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

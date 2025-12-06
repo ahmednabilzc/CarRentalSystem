@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <!-- شريط علوي بسيط مع لوجو -->
+    <div style="display:flex; align-items:center; gap:15px; border-bottom:1px solid #ccc; padding:10px 0;">
+        <img src="/static/img/logo.png" alt="Logo" width="60">
+        <div>
+            <h1 style="margin:0;">Car Rental Admin Dashboard</h1>
+            <small>Phase 4 – Core Functionality Prototype</small>
+        </div>
+    </div>
+
+    <!-- روابط التنقّل -->
+    <p style="margin-top:15px;">
+        <a href="/admin">Home</a> |
+        <a href="/admin/cars">Cars</a> |
+        <a href="/admin/maintenance">Maintenance</a> |
+        <a href="/admin/reports">Reports</a>
+    </p>
+
+    <!-- كروت ملونة بسيطة للأرقام -->
+    <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:180px; border:1px solid #ddd; padding:10px; border-radius:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <img src="/static/img/car.png" alt="Cars" width="40">
+                <div>
+                    <strong>Total Cars</strong>
+                    <div style="font-size:24px;">{{ total_cars }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex:1; min-width:180px; border:1px solid #ddd; padding:10px; border-radius:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <img src="/static/img/car.png" alt="Available" width="40">
+                <div>
+                    <strong>Available Cars</strong>
+                    <div style="font-size:24px; color:green;">{{ available_cars }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex:1; min-width:180px; border:1px solid #ddd; padding:10px; border-radius:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <img src="/static/img/car.png" alt="Rented" width="40">
+                <div>
+                    <strong>Rented Cars</strong>
+                    <div style="font-size:24px; color:darkred;">{{ rented_cars }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="flex:1; min-width:220px; border:1px solid #ddd; padding:10px; border-radius:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <img src="/static/img/maintenance.png" alt="Maintenance" width="40">
+                <div>
+                    <strong>Maintenance Records</strong>
+                    <div style="font-size:24px;">{{ total_maintenance }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- جزء بسيط “شكل رسمة” لتوضيح الفلو (رسم نصي) -->
+    <h2 style="margin-top:25px;">System Flow (Admin View)</h2>
+    <p>Simple schematic diagram:</p>
+    <pre style="background:#f9f9f9; padding:10px; border-radius:6px; border:1px solid #eee;">
+[Admin]
+   |
+   +-- Manage Cars --------> [Cars Table]
+   |
+   +-- Log Maintenance ----> [Maintenance Records]
+   |
+   +-- View Reports -------> [Summary & Statistics]
+    </pre>
+</body>
+</html>
